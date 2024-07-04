@@ -138,11 +138,13 @@ bindsym $mod+shift+x exec i3lock
 exec_always feh --bg-scale /home/nanguo/Pictures/wallpaper/wallpaper.jpg
 exec clash-verge
 exec google-chrome --proxy-server="socks://127.0.0.1:7897"
-exec_always xrandr --output eDP-1 --scale 1x1 --mode 1600x900
+
+
+exec_always xrandr --output eDP-1 --scale 1x1 --mode 1600x900 --gamma 1.0:0.8:0.7
 
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf1
 
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF85MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
