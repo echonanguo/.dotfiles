@@ -39,3 +39,4 @@ setxkbmap -option caps:swapescape
 alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}\t{{.Status}}"'
 alias dis='docker images'
 alias ra='ranger'
+

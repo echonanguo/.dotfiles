@@ -140,10 +140,11 @@ exec clash-verge
 exec google-chrome --proxy-server="socks://127.0.0.1:7897"
 
 
-exec_always xrandr --output eDP-1 --scale 1x1 --mode 1600x900 --gamma 1.0:0.8:0.7
+exec xrandr --output eDP-1 --scale 1x1 --mode 1600x900 
 
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf1
 
+exec --no-startup-id redshift
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
