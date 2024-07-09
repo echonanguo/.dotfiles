@@ -32,7 +32,6 @@ export https_proxy="http://127.0.0.1:7897"
 
 # 启动项
 alias cman='man -M /usr/local/zhman/share/man/zh_CN'
-setxkbmap -option caps:swapescape
 
 
 # 键位
