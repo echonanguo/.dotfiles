@@ -18,7 +18,7 @@ italic = { family = "Hack", style = "Italic" }
 
 bold_italic = { family = "Hack", style = "Bold Italic" }
 
-size = 8
+size = 10
 
 [cursor]
 
