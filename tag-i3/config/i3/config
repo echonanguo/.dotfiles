@@ -1,7 +1,7 @@
 # 设置win为mod键
 set $mod Mod4
 # 设置字体
-font pango:System San Francisco Display 14
+font pango:System San Francisco Display 12
 
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
