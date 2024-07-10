@@ -52,7 +52,7 @@ set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9"
+set $ws9 "9:WeChat"
 set $ws10 "10:Clash"
 
 bindsym $mod+1 workspace $ws1
@@ -81,6 +81,7 @@ bindsym $mod+Shift+r restart
 # 软件默认工作区
 assign [class="Clash-verge"] $ws10
 assign [class="Google-chrome-unstable"] $ws3
+assign [class="wechat"] $ws9
 
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
@@ -128,6 +129,7 @@ bar {
 	tray_output none
 #	position top
         status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
+	strip_workspace_numbers yes
 }
 # ######################
 
@@ -143,7 +145,8 @@ exec clash-verge
 exec google-chrome --proxy-server="socks://127.0.0.1:7897"
 
 
-exec xrandr --output eDP-1 --scale 1x1 --mode 1600x900 
+
+exec_always xrandr --output eDP-1 --scale 1x1 --mode 1600x900 
 
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf1
 
