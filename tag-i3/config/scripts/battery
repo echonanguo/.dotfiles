@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# 获取电池信息
+battery_info=$(acpi -b)
+
+# 提取电量百分比
+battery_percent=$(echo $battery_info | grep -oP '\d+%' | tr -d '%')
+
+# 输出结果
+echo "${battery_percent}%"
+
