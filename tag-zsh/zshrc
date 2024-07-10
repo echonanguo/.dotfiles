@@ -19,20 +19,9 @@ source $ZSH/oh-my-zsh.sh
 
 
 
-# Set JAVA_HOME
-export JAVA_HOME=/usr/lib64/jvm/java-17
-# Add JAVA_HOME to PATH
-export PATH=$JAVA_HOME/bin:$PATH
-
-
-# 代理
-export http_proxy="http://127.0.0.1:7897"
-export https_proxy="http://127.0.0.1:7897"
-
 
 # 启动项
 alias cman='man -M /usr/local/zhman/share/man/zh_CN'
-
 
 # 键位
 alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}\t{{.Status}}"'
