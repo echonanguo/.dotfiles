@@ -13,6 +13,12 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+# 发送窗口到 Scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# 从 Scratchpad 调出窗口
+bindsym $mod+minus scratchpad show
+
 floating_modifier $mod
 tiling_drag modifier titlebar
 bindsym $mod+Return exec alacritty
@@ -148,7 +154,7 @@ exec google-chrome --proxy-server="socks://127.0.0.1:7897"
 
 
 
-exec_always xrandr --output eDP-1 --scale 1x1 --mode 1600x900 
+exec_always xrandr --output eDP-1 --scale 0.85x0.85  --mode 1920x1080 
 
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf1
 
