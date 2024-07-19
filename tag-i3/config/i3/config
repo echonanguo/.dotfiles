@@ -149,8 +149,6 @@ exec setxkbmap -option caps:swapescape
 
 
 exec_always feh --bg-scale /home/nanguo/Pictures/wallpaper/wallpaper.jpg
-exec clash-verge
-exec google-chrome --proxy-server="socks://127.0.0.1:7897"
 
 exec_always xrandr -s 1920x1080
 
