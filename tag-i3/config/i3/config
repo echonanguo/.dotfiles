@@ -53,7 +53,7 @@ bindsym $mod+a focus parent
 set $ws1 "1:Terminal"
 set $ws2 "2:Editor"
 set $ws3 "3:Chrome"
-set $ws4 "4"
+set $ws4 "4:文档"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -88,10 +88,10 @@ bindsym $mod+Shift+r restart
 assign [class="Clash-verge"] $ws10
 assign [class="Google-chrome-unstable"] $ws3
 assign [class="wechat"] $ws9
-assign [class="Wps"] $ws2
+assign [class="Wps"] $ws4
 assign [class="QQ"] $ws9
 assign [class="Spotify"] $ws8
-
+assign [class="jetbrains-idea-ce"] $ws2
 
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
