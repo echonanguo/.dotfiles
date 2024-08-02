@@ -137,12 +137,37 @@ bar {
         binding_mode       #FF5555 #FF5555 #F8F8F2
     }
 
-	tray_output none
+	output primary
+	tray_output nonprimary
 #	position top
         status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
 	strip_workspace_numbers yes
 }
+
 # ######################
+
+# finds out, if available)
+bar {
+
+	colors {
+        background #282A36
+        statusline #F8F8F2
+        separator  #44475A
+
+        focused_workspace  #44475A #44475A #F8F8F2
+        active_workspace   #282A36 #44475A #F8F8F2
+        inactive_workspace #282A36 #282A36 #BFBFBF
+        urgent_workspace   #FF5555 #FF5555 #F8F8F2
+        binding_mode       #FF5555 #FF5555 #F8F8F2
+    }
+
+	tray_output HDMI-2
+#	position top
+	output nonprimary
+        status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
+	strip_workspace_numbers yes
+}
+
 
 
 #锁定快捷键
@@ -162,6 +187,7 @@ bindsym $mod+p move workspace to output eDP-1
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf1
 exec --no-startup-id redshift
 
+exec setxkbmap -option caps:swapescape
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
