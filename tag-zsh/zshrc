@@ -18,11 +18,6 @@ source $ZSH/oh-my-zsh.sh
 
 
 
-
-
-# 启动项
-alias cman='man -M /usr/local/zhman/share/man/zh_CN'
-
 # 键位
 alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}\t{{.Status}}"'
 alias dis='docker images'
