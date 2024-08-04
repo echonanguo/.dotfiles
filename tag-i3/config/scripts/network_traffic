@@ -33,5 +33,5 @@ RX_MBPS=$(printf "%.1f" $RX_MBPS)
 TX_MBPS=$(printf "%.1f" $TX_MBPS)
 
 # 显示结果，使用大箭头
-echo "$INTERFACE:  $TX_MBPS MB/s |  $RX_MBPS MB/s"
+echo "$INTERFACE:  $TX_MBPS MB/S |  $RX_MBPS MB/S"
 
