@@ -28,9 +28,9 @@ TX_BYTES=$(($TX_BYTES_FINAL - $TX_BYTES_INITIAL))
 RX_MBPS=$(echo "scale=2; $RX_BYTES / 1024 / 1024" | bc)
 TX_MBPS=$(echo "scale=2; $TX_BYTES / 1024 / 1024" | bc)
 
-# 格式化输出，确保小数点后两位
-RX_MBPS=$(printf "%.2f" $RX_MBPS)
-TX_MBPS=$(printf "%.2f" $TX_MBPS)
+# 格式化输出，确保小数点后一位
+RX_MBPS=$(printf "%.1f" $RX_MBPS)
+TX_MBPS=$(printf "%.1f" $TX_MBPS)
 
 # 显示结果，使用大箭头
 echo "$INTERFACE:  $TX_MBPS MB/s |  $RX_MBPS MB/s"
