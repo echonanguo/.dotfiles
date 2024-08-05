@@ -88,7 +88,7 @@ bindsym $mod+Shift+r restart
 assign [class="Clash-verge"] $ws7
 assign [class="Google-chrome-unstable"] $ws3
 assign [class="wechat"] $ws6
-assign [class="Wps"] $ws4
+assign [class="wps"] $ws4
 assign [class="QQ"] $ws6
 assign [class="Spotify"] $ws5
 assign [class="jetbrains-idea-ce"] $ws2
