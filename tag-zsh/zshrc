@@ -19,6 +19,9 @@ source $ZSH/oh-my-zsh.sh
 
 
 # 键位
+alias neofetch='neofetch --ascii_distro openSUSE'
+alias neofetch-mac='neofetch --ascii_distro mac'
+alias neofetch-n='neofetch --ascii ~/.config/neofetch/ascii-art-neofetch/communist --ascii_colors 1'
 alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}\t{{.Status}}"'
 alias dis='docker images'
 alias ra='ranger'
