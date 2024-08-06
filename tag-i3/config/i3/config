@@ -88,7 +88,8 @@ bindsym $mod+Shift+r restart
 assign [class="Clash-verge"] $ws7
 assign [class="Google-chrome-unstable"] $ws3
 assign [class="wechat"] $ws6
-assign [class="wps"] $ws4
+assign [class="libreoffice"] $ws4
+assign [class="okular"] $ws4
 assign [class="QQ"] $ws6
 assign [class="Spotify"] $ws5
 assign [class="jetbrains-idea-ce"] $ws2
@@ -138,7 +139,7 @@ bar {
     }
 
 	output primary
-	tray_output nonprimary
+	tray_output eDP-1
 #	position top
         status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
 	strip_workspace_numbers yes
@@ -168,10 +169,10 @@ bar {
 	strip_workspace_numbers yes
 }
 
-for_window [class="^.*"] border pixel 2 # 把所有的窗口边框设为 2 像素
-new_window 1pixel # 去掉标题栏
+for_window [class="^.*"] border pixel 3 # 把所有的窗口边框设为 3 像素
 #锁定快捷键
 bindsym $mod+shift+x exec i3lock
+bindsym --release $mod+shift+y exec scrot -s -e 'mv $f ~/Temp/screenshot/'
 
 exec_always feh --bg-scale ~/Pictures/wallpaper/wallhaven-mdpgl8.png
 
