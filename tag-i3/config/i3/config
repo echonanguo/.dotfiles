@@ -87,6 +87,7 @@ assign [class="QQ"] $ws6
 assign [class="Spotify"] $ws5
 assign [class="jetbrains-idea-ce"] $ws2
 assign [class="Typora"] $ws2
+assign [class="Code"] $ws2
 
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
@@ -133,7 +134,7 @@ bar {
     }
 
 	output primary
-	tray_output eDP-1
+	tray_output none
 #	position top
         status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
 	strip_workspace_numbers yes
@@ -156,7 +157,6 @@ bar {
         binding_mode       #FF5555 #FF5555 #F8F8F2
     }
 
-	tray_output HDMI-2
 #	position top
 	output nonprimary
         status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf

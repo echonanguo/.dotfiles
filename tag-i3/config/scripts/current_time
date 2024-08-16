@@ -3,6 +3,4 @@
 # 获取当前时间
 current_time=$(date +"%Y-%m-%d %H:%M (%Z)")
 
-# 输出结果
-echo "$current_time"
-
+ echo "$current_time"
