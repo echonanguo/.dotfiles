@@ -1,0 +1,13 @@
+{
+    "clangd.arguments": [
+        "--background-index",
+        "--clang-tidy",
+        "--completion-style=bundled",
+        "--header-insertion=never"
+    ],
+   
+    "suggest.triggerAfterInsertEnter": true,
+    "suggest.noselect": false,
+"    suggest.enablePreselect": false
+}
+
