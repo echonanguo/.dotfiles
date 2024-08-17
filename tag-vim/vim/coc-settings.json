@@ -1,13 +1,64 @@
 {
-    "clangd.arguments": [
-        "--background-index",
-        "--clang-tidy",
-        "--completion-style=bundled",
-        "--header-insertion=never"
-    ],
-   
-    "suggest.triggerAfterInsertEnter": true,
-    "suggest.noselect": false,
-"    suggest.enablePreselect": false
+        "languageserver": {
+                "golang": {
+                        "command": "gopls",
+                        "rootPatterns": [
+                                "go.work",
+                                "go.mod",
+                                ".vim/",
+                                ".git/",
+                                ".hg/"
+                        ],
+                        "filetypes": [
+                                "go"
+                        ],
+                        "initializationOptions": {
+                                "usePlaceholders": false
+                        }
+                },
+                "cmake": {
+                        "command": "cmake-language-server",
+                        "filetypes": [
+                                "cmake"
+                        ],
+                        "rootPatterns": [
+                                "build/"
+                        ],
+                        "initializationOptions": {
+                                "buildDirectory": "build"
+                        }
+                },
+                "haskell": {
+                        "command": "haskell-language-server-wrapper",
+                        "args": [
+                                "--lsp"
+                        ],
+                        "rootPatterns": [
+                                "*.cabal",
+                                "stack.yaml",
+                                "cabal.project",
+                                "package.yaml",
+                                "hie.yaml"
+                        ],
+                        "filetypes": [
+                                "haskell",
+                                "lhaskell"
+                        ],
+                        // Settings are optional, here are some example values
+                        "settings": {
+                                "haskell": {
+                                        "checkParents": "CheckOnSave",
+                                        "checkProject": true,
+                                        "maxCompletions": 10,
+                                        "formattingProvider": "ormolu",
+                                        "plugin": {
+                                                "stan": {
+                                                        "globalOn": true
+                                                }
+                                        }
+                                }
+                        }
+                }
+        },
+  "@ignored/coc-solidity.telemetry": true
 }
-
