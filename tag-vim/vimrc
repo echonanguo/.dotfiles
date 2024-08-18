@@ -1,10 +1,121 @@
-" Vim Plugin
-call plug#begin('~/.vim/plugged')
-Plug 'preservim/nerdtree'
-Plug 'vim-airline/vim-airline'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-call plug#end() 
+" === 插件管理 ===
+" 初始化插件系统
+call plug#begin()
 
+" coc.nvim: 提供代码补全、语法检查和导航功能
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+
+" NERDTree: 显示文件树以便于导航
+Plug 'scrooloose/nerdtree'
+
+" vim-surround: 简化用括号、引号等包围文本的过程
+Plug 'tpope/vim-surround'
+
+" auto-pairs: 自动关闭括号、引号等
+Plug 'jiangmiao/auto-pairs'
+
+" a.vim: 快速在源文件和头文件之间切换（适用于 C++ 开发）
+Plug 'vim-scripts/a.vim'
+
+" DoxygenToolkit.vim: 便于创建 Doxygen 风格的注释
+Plug 'vim-scripts/DoxygenToolkit.vim'
+
+" vim-cpp-enhanced-highlight: 增强 C++ 代码的语法高亮
+Plug 'octol/vim-cpp-enhanced-highlight'
+
+" lightline.vim: 一个轻量级状态行插件
+Plug 'itchyny/lightline.vim'
+
+" vim-rainbow: 用不同的颜色匹配括号（彩虹括号）
+Plug 'frazrepo/vim-rainbow'
+
+" 主题
+Plug 'connorholyday/vim-snazzy'
+"  插件定义结束
+call plug#end()
+
+" 启用 24 位真彩色支持，以获得更好的颜色效果
+if has("termguicolors")
+  set termguicolors
+endif
+
+" 设置背景透明（兼容性更好的方式）
+augroup MyColors
+   autocmd!
+   autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
+   autocmd ColorScheme * highlight NonText ctermbg=NONE guibg=NONE
+   autocmd ColorScheme * highlight LineNr ctermbg=NONE guibg=NONE
+   autocmd ColorScheme * highlight SignColumn ctermbg=NONE guibg=NONE
+augroup END
+
+color snazzy
+" === 基本编辑器设置 ===
+" 始终显示状态行
+set laststatus=2
+
+" 让光标不接触上下边界
+set scrolloff=5
+
+
+" 使用 UTF-8 编码
+set encoding=utf-8
+
+" 禁用备份文件
+set nobackup
+set nowritebackup
+
+" 启用语法高亮
+syntax on
+syntax enable
+
+" 设置缩进：每个制表符/缩进使用 4 个空格
+set shiftwidth=4
+set tabstop=4
+
+" 启用 C 风格的缩进
+set cindent
+
+" 显示行号
+set relativenumber 
+
+" 使用基于缩进的折叠
+set foldmethod=indent
+
+" 在状态行中显示正在输入的命令
+set showcmd
+
+" 高亮搜索结果
+set hlsearch
+
+" 启用增量搜索
+set incsearch
+
+" 设置wildmenu
+set wildmenu 
+" === 文件路径和文件类型设置 ===
+" 将 '/usr/include' 添加到搜索路径中
+set path^=/usr/include
+
+" 启用文件类型特定的缩进
+filetype indent on
+
+" === 补全设置 ===
+" 使用 <TAB> 在补全菜单中选择下一个项
+inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : "\<TAB>"
+
+" 使用 <S-TAB>（Shift + TAB）选择上一个项
+inoremap <silent><expr> <S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<S-TAB>"
+
+" 使用 <CR> 确认补全选项或执行默认的回车行为
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+" 设置代码导航的键映射（跳转到定义、类型定义等）
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" === 附加功能设置 ===
 " 键位绑定
 let mapleader = ";"
 nnoremap <Leader>q :q<CR>
@@ -12,8 +123,25 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>g :NERDTreeToggle<CR>
 nnoremap <Leader>f :NERDTreeFind<CR>
 
-set clipboard=unnamedplus   " 使用系统剪切版 -> Vim
-set relativenumber " 设置显示相对行号
-set wildmenu " 命令预览 
-set tabstop=4        " 一个 tab 显示为 4 个空格宽度
-set shiftwidth=4     " 每次自动缩进时使用 4 个空格
+" Shift + HJKL 快速移动光标
+nnoremap <S-h> ^
+nnoremap <S-j> 5j
+nnoremap <S-k> 5k
+nnoremap <S-l> $
+
+inoremap jk <Esc>
+
+
+" === 特殊配置 ===
+" 启用彩虹括号功能
+let g:rainbow_active=1
+
+" 配置 vim-floaterm（浮动终端的大小和行为）
+let g:floaterm_height=0.8
+let g:floaterm_with=0.9
+let g:floaterm_autoclose=2
+
+" 启用增强的 C++ 语法高亮特性
+let g:cpp_class_scope_highlight=1
+let g:cpp_variable_highlight=1
+let g:cpp_class_decl_highlight=1
