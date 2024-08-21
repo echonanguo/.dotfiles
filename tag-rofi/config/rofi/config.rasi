@@ -1,0 +1,9 @@
+configuration {
+    modi: "drun,window";              // 设定模态
+    lines: 4;                         // 设置行数
+    columns: 2;                       // 设置列数
+    width: 100;                       // 设置宽度百分比
+    show-icons: true;                 // 显示图标
+	font: "hack 17";
+    sidebar-mode: true;               // 启用侧边栏模式
+}

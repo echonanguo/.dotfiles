@@ -16,7 +16,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec rofi -show drun -columns 3
+bindsym $mod+d exec rofi -show drun -theme Arc-Dark
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
