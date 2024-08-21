@@ -122,6 +122,9 @@ nnoremap <Leader>q :q<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>g :NERDTreeToggle<CR>
 nnoremap <Leader>f :NERDTreeFind<CR>
+nnoremap <Leader>c :!~/scripts/compile.sh %<CR>
+nnoremap <Leader>e :!~/scripts/execute.sh %<CR>
+nnoremap <Leader>r :!~/scripts/run.sh %<CR>
 
 " Shift + HJKL 快速移动光标
 nnoremap <S-h> ^
