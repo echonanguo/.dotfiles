@@ -7,6 +7,7 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 " NERDTree: 显示文件树以便于导航
 Plug 'scrooloose/nerdtree'
+Plug 'ryanoasis/vim-devicons'
 
 " vim-surround: 简化用括号、引号等包围文本的过程
 Plug 'tpope/vim-surround'
@@ -17,20 +18,23 @@ Plug 'jiangmiao/auto-pairs'
 " a.vim: 快速在源文件和头文件之间切换（适用于 C++ 开发）
 Plug 'vim-scripts/a.vim'
 
-" DoxygenToolkit.vim: 便于创建 Doxygen 风格的注释
-Plug 'vim-scripts/DoxygenToolkit.vim'
+" 注释
+Plug 'preservim/nerdcommenter'
+
 
 " vim-cpp-enhanced-highlight: 增强 C++ 代码的语法高亮
 Plug 'octol/vim-cpp-enhanced-highlight'
 
-" lightline.vim: 一个轻量级状态行插件
-Plug 'itchyny/lightline.vim'
+" 状态行插件
+Plug 'vim-airline/vim-airline'
 
 " vim-rainbow: 用不同的颜色匹配括号（彩虹括号）
 Plug 'frazrepo/vim-rainbow'
 
 " 主题
-Plug 'connorholyday/vim-snazzy'
+Plug 'morhetz/gruvbox'
+
+
 "  插件定义结束
 call plug#end()
 
@@ -48,14 +52,17 @@ augroup MyColors
    autocmd ColorScheme * highlight SignColumn ctermbg=NONE guibg=NONE
 augroup END
 
-color snazzy
+colorscheme gruvbox
+" 调整
+set bg=dark
+
+
 " === 基本编辑器设置 ===
 " 始终显示状态行
 set laststatus=2
 
 " 让光标不接触上下边界
 set scrolloff=5
-
 
 " 使用 UTF-8 编码
 set encoding=utf-8
@@ -76,6 +83,7 @@ set tabstop=4
 set cindent
 
 " 显示行号
+set number
 set relativenumber 
 
 " 使用基于缩进的折叠
@@ -92,6 +100,7 @@ set incsearch
 
 " 设置wildmenu
 set wildmenu 
+
 " === 文件路径和文件类型设置 ===
 " 将 '/usr/include' 添加到搜索路径中
 set path^=/usr/include
@@ -120,11 +129,35 @@ nmap <silent> gr <Plug>(coc-references)
 let mapleader = ";"
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>w :w<CR>
-nnoremap <Leader>g :NERDTreeToggle<CR>
 nnoremap <Leader>f :NERDTreeFind<CR>
-nnoremap <Leader>c :!~/scripts/compile.sh %<CR>
-nnoremap <Leader>e :!~/scripts/execute.sh %<CR>
-nnoremap <Leader>r :!~/scripts/run.sh %<CR>
+nnoremap <Leader>g ::NERDTreeToggle<CR>
+" 标签
+nnoremap <Leader>h :tabprevious<CR>
+nnoremap <Leader>l :tabnext<CR>
+nnoremap <Leader>n :tabnew<Space>
+" C++相关的
+nnoremap <Leader>m :!~/.scripts/compile.sh %<CR>
+nnoremap <Leader>e :!~/.scripts/execute.sh %<CR>
+nnoremap <Leader>r :!~/.scripts/run.sh %<CR>
+" ===分屏====
+" 使用 Leader + H 分屏左侧
+nnoremap <Leader>H :vsplit<CR><C-w h>
+" 使用 Leader + J 分屏下方
+nnoremap <Leader>J :split<CR><C-w j>
+" 使用 Leader + K 分屏上方
+nnoremap <Leader>K :split<CR><C-w k>
+" 使用 Leader + L 分屏右侧
+nnoremap <Leader>L :vsplit<CR><C-w l>
+" 增加当前窗口高度
+nnoremap <Leader>+ :resize +5<CR>
+" 减少当前窗口高度
+nnoremap <Leader>- :resize -5<CR>
+" 增加当前窗口宽度
+nnoremap <Leader>> :vertical resize +5<CR>
+" 减少当前窗口宽度
+nnoremap <Leader>< :vertical resize -5<CR>
+
+
 
 " Shift + HJKL 快速移动光标
 nnoremap <S-h> ^
@@ -134,17 +167,48 @@ nnoremap <S-l> $
 
 inoremap jk <Esc>
 
-
 " === 特殊配置 ===
 " 启用彩虹括号功能
-let g:rainbow_active=1
+let g:rainbow_active = 1  
 
-" 配置 vim-floaterm（浮动终端的大小和行为）
-let g:floaterm_height=0.8
-let g:floaterm_with=0.9
-let g:floaterm_autoclose=2
 
 " 启用增强的 C++ 语法高亮特性
 let g:cpp_class_scope_highlight=1
 let g:cpp_variable_highlight=1
 let g:cpp_class_decl_highlight=1
+
+" airline
+set showtabline=2
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_tab_count = 0
+let g:airline#extensions#tabline#show_close_button = 0
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+" 设置 vim-airline 的主题
+let g:airline_theme = 'gruvbox'
+
+" 启用NERDTree
+let g:NERDTreeShowLineNumbers=1
+let g:NERDTreeDirArrows=1
+
+" 启用devicons
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:WebDevIconsUnicodeDecorateFileNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+
+" 注释
+let g:NERDCreateDefaultMappings = 1
+let g:NERDCommenterCommentString = {
+\ 'python': '# %s',
+\ 'javascript': '// %s',
+\ 'html': '<!-- %s -->',
+\ 'css': '/* %s */',
+\ 'cpp': '// %s',
+\ 'sh': '# %s',
+\ }
+
+
