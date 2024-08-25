@@ -40,16 +40,16 @@ call plug#end()
 
 " 启用 24 位真彩色支持，以获得更好的颜色效果
 if has("termguicolors")
-  set termguicolors
+	set termguicolors
 endif
 
 " 设置背景透明（兼容性更好的方式）
 augroup MyColors
-   autocmd!
-   autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
-   autocmd ColorScheme * highlight NonText ctermbg=NONE guibg=NONE
-   autocmd ColorScheme * highlight LineNr ctermbg=NONE guibg=NONE
-   autocmd ColorScheme * highlight SignColumn ctermbg=NONE guibg=NONE
+	autocmd!
+	autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
+	autocmd ColorScheme * highlight NonText ctermbg=NONE guibg=NONE
+	autocmd ColorScheme * highlight LineNr ctermbg=NONE guibg=NONE
+	autocmd ColorScheme * highlight SignColumn ctermbg=NONE guibg=NONE
 augroup END
 
 colorscheme gruvbox
@@ -100,6 +100,9 @@ set incsearch
 
 " 设置wildmenu
 set wildmenu 
+
+"设置vim与系统共用一个剪切板
+set clipboard=unnamedplus
 
 " === 文件路径和文件类型设置 ===
 " 将 '/usr/include' 添加到搜索路径中
@@ -200,15 +203,17 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:WebDevIconsUnicodeDecorateFileNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
 
+
+
 " 注释
 let g:NERDCreateDefaultMappings = 1
 let g:NERDCommenterCommentString = {
-\ 'python': '# %s',
-\ 'javascript': '// %s',
-\ 'html': '<!-- %s -->',
-\ 'css': '/* %s */',
-\ 'cpp': '// %s',
-\ 'sh': '# %s',
-\ }
+			\ 'python': '# %s',
+			\ 'javascript': '// %s',
+			\ 'html': '<!-- %s -->',
+			\ 'css': '/* %s */',
+			\ 'cpp': '// %s',
+			\ 'sh': '# %s',
+			\ }
 
 
