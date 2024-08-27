@@ -106,7 +106,7 @@ set clipboard=unnamedplus
 
 " === 文件路径和文件类型设置 ===
 " 将 '/usr/include' 添加到搜索路径中
-set path^=/usr/include
+" set path^=/usr/include
 
 " 启用文件类型特定的缩进
 filetype indent on
@@ -142,25 +142,10 @@ nnoremap <Leader>n :tabnew<Space>
 nnoremap <Leader>m :!~/.scripts/compile.sh %<CR>
 nnoremap <Leader>e :!~/.scripts/execute.sh %<CR>
 nnoremap <Leader>r :!~/.scripts/run.sh %<CR>
+
 " ===分屏====
-" 使用 Leader + H 分屏左侧
-nnoremap <Leader>H :vsplit<CR><C-w h>
-" 使用 Leader + J 分屏下方
-nnoremap <Leader>J :split<CR><C-w j>
-" 使用 Leader + K 分屏上方
-nnoremap <Leader>K :split<CR><C-w k>
-" 使用 Leader + L 分屏右侧
-nnoremap <Leader>L :vsplit<CR><C-w l>
-" 增加当前窗口高度
-nnoremap <Leader>+ :resize +5<CR>
-" 减少当前窗口高度
-nnoremap <Leader>- :resize -5<CR>
-" 增加当前窗口宽度
-nnoremap <Leader>> :vertical resize +5<CR>
-" 减少当前窗口宽度
-nnoremap <Leader>< :vertical resize -5<CR>
-
-
+nnoremap sv :vsplit<CR><C-w h>
+nnoremap sh :split<CR><C-w j>
 
 " Shift + HJKL 快速移动光标
 nnoremap <S-h> ^
