@@ -15,13 +15,12 @@ source $ZSH/oh-my-zsh.sh
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
-
-
 # 键位
 alias neo='neofetch --ascii ~/.config/neofetch/ascii-art-neofetch/communist --ascii_colors 1 | lolcat.ruby3.3'
 alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}\t{{.Status}}"'
 alias dis='docker images'
 alias ra='ranger'
+alias vim='nvim'
+alias vi='nvim'
 
 
