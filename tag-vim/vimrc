@@ -2,9 +2,6 @@
 " 初始化插件系统
 call plug#begin()
 
-" coc.nvim: 提供代码补全、语法检查和导航功能
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-
 " NERDTree: 显示文件树以便于导航
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
@@ -15,15 +12,8 @@ Plug 'tpope/vim-surround'
 " auto-pairs: 自动关闭括号、引号等
 Plug 'jiangmiao/auto-pairs'
 
-" a.vim: 快速在源文件和头文件之间切换（适用于 C++ 开发）
-Plug 'vim-scripts/a.vim'
-
 " 注释
 Plug 'preservim/nerdcommenter'
-
-
-" vim-cpp-enhanced-highlight: 增强 C++ 代码的语法高亮
-Plug 'octol/vim-cpp-enhanced-highlight'
 
 " 状态行插件
 Plug 'vim-airline/vim-airline'
@@ -33,7 +23,6 @@ Plug 'frazrepo/vim-rainbow'
 
 " 主题
 Plug 'morhetz/gruvbox'
-
 
 "  插件定义结束
 call plug#end()
@@ -55,7 +44,6 @@ augroup END
 colorscheme gruvbox
 " 调整
 set bg=dark
-
 
 " === 基本编辑器设置 ===
 " 始终显示状态行
@@ -105,31 +93,13 @@ set wildmenu
 set clipboard=unnamedplus
 
 " === 文件路径和文件类型设置 ===
-" 将 '/usr/include' 添加到搜索路径中
-" set path^=/usr/include
 
 " 启用文件类型特定的缩进
 filetype indent on
 
-" === 补全设置 ===
-" 使用 <TAB> 在补全菜单中选择下一个项
-inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : "\<TAB>"
-
-" 使用 <S-TAB>（Shift + TAB）选择上一个项
-inoremap <silent><expr> <S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<S-TAB>"
-
-" 使用 <CR> 确认补全选项或执行默认的回车行为
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
-
-" 设置代码导航的键映射（跳转到定义、类型定义等）
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
 " === 附加功能设置 ===
 " 键位绑定
-let mapleader = ";"
+let mapleader = " "
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>f :NERDTreeFind<CR>
@@ -138,32 +108,22 @@ nnoremap <Leader>g ::NERDTreeToggle<CR>
 nnoremap <Leader>h :tabprevious<CR>
 nnoremap <Leader>l :tabnext<CR>
 nnoremap <Leader>n :tabnew<Space>
-" C++相关的
-nnoremap <Leader>m :!~/.scripts/compile.sh %<CR>
-nnoremap <Leader>e :!~/.scripts/execute.sh %<CR>
-nnoremap <Leader>r :!~/.scripts/run.sh %<CR>
 
 " ===分屏====
-nnoremap sv :vsplit<CR><C-w h>
-nnoremap sh :split<CR><C-w j>
+nnoremap <Leader>sv :vsplit<CR><C-w h>
+nnoremap <Leader>sh :split<CR><C-w j>
 
 " Shift + HJKL 快速移动光标
-nnoremap <S-h> ^
+nnoremap <S-h> 5h
 nnoremap <S-j> 5j
 nnoremap <S-k> 5k
-nnoremap <S-l> $
+nnoremap <S-l> 5l
 
 inoremap jk <Esc>
 
 " === 特殊配置 ===
 " 启用彩虹括号功能
 let g:rainbow_active = 1  
-
-
-" 启用增强的 C++ 语法高亮特性
-let g:cpp_class_scope_highlight=1
-let g:cpp_variable_highlight=1
-let g:cpp_class_decl_highlight=1
 
 " airline
 set showtabline=2
@@ -187,18 +147,5 @@ let g:NERDTreeDirArrows=1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:WebDevIconsUnicodeDecorateFileNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
-
-
-
-" 注释
-let g:NERDCreateDefaultMappings = 1
-let g:NERDCommenterCommentString = {
-			\ 'python': '# %s',
-			\ 'javascript': '// %s',
-			\ 'html': '<!-- %s -->',
-			\ 'css': '/* %s */',
-			\ 'cpp': '// %s',
-			\ 'sh': '# %s',
-			\ }
 
 
