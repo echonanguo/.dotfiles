@@ -67,9 +67,6 @@ syntax enable
 set shiftwidth=4
 set tabstop=4
 
-" 启用 C 风格的缩进
-set cindent
-
 " 显示行号
 set number
 set relativenumber 
@@ -102,12 +99,11 @@ filetype indent on
 let mapleader = " "
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>w :w<CR>
-nnoremap <Leader>f :NERDTreeFind<CR>
-nnoremap <Leader>g ::NERDTreeToggle<CR>
+nnoremap <Leader>o :NERDTreeFind<CR>
+nnoremap <Leader>e ::NERDTreeToggle<CR>
 " 标签
 nnoremap <Leader>h :tabprevious<CR>
 nnoremap <Leader>l :tabnext<CR>
-nnoremap <Leader>n :tabnew<Space>
 
 " ===分屏====
 nnoremap <Leader>sv :vsplit<CR><C-w h>
