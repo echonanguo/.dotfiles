@@ -97,10 +97,8 @@ filetype indent on
 " === 附加功能设置 ===
 " 键位绑定
 let mapleader = " "
-nnoremap <Leader>q :q<CR>
-nnoremap <Leader>w :w<CR>
 nnoremap <Leader>o :NERDTreeFind<CR>
-nnoremap <Leader>e ::NERDTreeToggle<CR>
+nnoremap <Leader>e :NERDTreeToggle<CR>
 " 标签
 nnoremap <Leader>h :tabprevious<CR>
 nnoremap <Leader>l :tabnext<CR>
@@ -108,12 +106,6 @@ nnoremap <Leader>l :tabnext<CR>
 " ===分屏====
 nnoremap <Leader>sv :vsplit<CR><C-w h>
 nnoremap <Leader>sh :split<CR><C-w j>
-
-" Shift + HJKL 快速移动光标
-nnoremap <S-h> 5h
-nnoremap <S-j> 5j
-nnoremap <S-k> 5k
-nnoremap <S-l> 5l
 
 inoremap jk <Esc>
 

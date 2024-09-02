@@ -164,8 +164,7 @@ bar {
 }
 
 # 3 px 宽的无标题栏边框
-default_border pixel 3
-for_window [class="Alacritty"] border normal
+default_border pixel 1
 #锁定快捷键
 bindsym $mod+shift+x exec i3lock
 bindsym --release $mod+shift+y exec scrot -s -e 'mv $f ~/Temp/screenshot/'
