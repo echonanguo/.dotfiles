@@ -173,7 +173,7 @@ exec_always feh --bg-scale ~/Pictures/wallpaper/wallhaven-mdpgl8.png
 
 # 设置显示器
 exec --no-startup-id xrandr --output HDMI-2 --auto
-exec --no-startup-id xrandr --output HDMI-2 --primary --above eDP-1
+exec --no-startup-id xrandr --output HDMI-2 --primary --right-of eDP-1
 
 bindsym $mod+u move workspace to output HDMI-2
 # 将工作区移动到下方的显示器
