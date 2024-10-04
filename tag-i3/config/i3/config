@@ -93,17 +93,18 @@ assign [class="jetbrains-clion"] $ws2
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 mode "resize" {
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+
+bindsym h resize shrink width 10 px
+bindsym l resize grow width 10 px
+bindsym j resize grow height 10 px
+bindsym k resize shrink height 10 px  
+bindsym 8 resize set 50 ppt 50 ppt
+bindsym 9 resize set 62 ppt 38 ppt
+
+# 调整窗口大小的快捷键
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+		bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -123,22 +124,22 @@ client.background        #82abba
 bar {
 
 	colors {
-        background #282A36
-        statusline #F8F8F2
-        separator  #44475A
+		background #282A36
+			statusline #F8F8F2
+			separator  #44475A
 
-        focused_workspace  #44475A #44475A #F8F8F2
-        active_workspace   #282A36 #44475A #F8F8F2
-        inactive_workspace #282A36 #282A36 #BFBFBF
-        urgent_workspace   #FF5555 #FF5555 #F8F8F2
-        binding_mode       #FF5555 #FF5555 #F8F8F2
-    }
+			focused_workspace  #44475A #44475A #F8F8F2
+			active_workspace   #282A36 #44475A #F8F8F2
+			inactive_workspace #282A36 #282A36 #BFBFBF
+			urgent_workspace   #FF5555 #FF5555 #F8F8F2
+			binding_mode       #FF5555 #FF5555 #F8F8F2
+	}
 
 	output primary
-	tray_output none
-#	position top
-        status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
-	strip_workspace_numbers yes
+#tray_output none
+		position top
+		status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
+		strip_workspace_numbers yes
 }
 
 # ######################
@@ -147,22 +148,22 @@ bar {
 bar {
 
 	colors {
-        background #282A36
-        statusline #F8F8F2
-        separator  #44475A
+		background #282A36
+			statusline #F8F8F2
+			separator  #44475A
 
-        focused_workspace  #44475A #44475A #F8F8F2
-        active_workspace   #282A36 #44475A #F8F8F2
-        inactive_workspace #282A36 #282A36 #BFBFBF
-        urgent_workspace   #FF5555 #FF5555 #F8F8F2
-        binding_mode       #FF5555 #FF5555 #F8F8F2
-    }
+			focused_workspace  #44475A #44475A #F8F8F2
+			active_workspace   #282A36 #44475A #F8F8F2
+			inactive_workspace #282A36 #282A36 #BFBFBF
+			urgent_workspace   #FF5555 #FF5555 #F8F8F2
+			binding_mode       #FF5555 #FF5555 #F8F8F2
+	}
 
-#	position top
-	output nonprimary
-	tray_output none
-        status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
-	strip_workspace_numbers yes
+	position top
+		output nonprimary
+		tray_output none
+		status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
+		strip_workspace_numbers yes
 }
 
 # 3 px 宽的无标题栏边框
