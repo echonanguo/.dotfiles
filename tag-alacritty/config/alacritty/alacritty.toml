@@ -10,13 +10,13 @@ padding = { x = 20, y = 10}
 
 [font]
 
-normal = { family = "Hack Nerd Font", style = "Regular" }
+normal = { family = "Hack", style = "Regular" }
 
-bold = { family = "Hack Nerd Font", style = "Bold" }
+bold = { family = "Hack", style = "bold" }
 
-italic = { family = "Hack Nerd Font", style = "Italic" }
+italic = { family = "Hack", style = "Italic" }
 
-bold_italic = { family = "Hack Nerd Font", style = "Bold Italic" }
+bold_italic = { family = "Hack", style = "Bold Italic" }
 
 size = 13
 
