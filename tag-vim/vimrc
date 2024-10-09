@@ -13,6 +13,9 @@ Plug 'morhetz/gruvbox'
 " 快速跳转
 Plug 'easymotion/vim-easymotion'
 
+" markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
+
 call plug#end()
 
 " === 主题设置 ===
