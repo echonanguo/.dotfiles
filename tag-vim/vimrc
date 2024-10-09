@@ -1,11 +1,10 @@
 " === 插件管理 ===
-" 初始化插件系统
 call plug#begin()
 
 " 状态行插件
 Plug 'vim-airline/vim-airline'
 
-" vim-rainbow: 用不同的颜色匹配括号（彩虹括号）
+" 彩虹括号
 Plug 'frazrepo/vim-rainbow'
 
 " 主题
@@ -14,108 +13,77 @@ Plug 'morhetz/gruvbox'
 " 快速跳转
 Plug 'easymotion/vim-easymotion'
 
-"  插件定义结束
 call plug#end()
 
-" 启用 24 位真彩色支持，以获得更好的颜色效果
+" === 主题设置 ===
 if has("termguicolors")
-	set termguicolors
+    set termguicolors
 endif
 
-" 设置背景透明（兼容性更好的方式）
-"augroup MyColors
-"	autocmd!
-"	autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
-"	autocmd ColorScheme * highlight NonText ctermbg=NONE guibg=NONE
-"	autocmd ColorScheme * highlight LineNr ctermbg=NONE guibg=NONE
-"	autocmd ColorScheme * highlight SignColumn ctermbg=NONE guibg=NONE
-"augroup END
-
+" 主题配色方案
 colorscheme gruvbox
-" 调整
 set bg=dark
 
 " === 基本编辑器设置 ===
-" 始终显示状态行
 set laststatus=2
-
-" 让光标不接触上下边界
-set scrolloff=8
-
-" 使用 UTF-8 编码
+set scrolloff=10  " 提高 scrolloff，避免光标过于贴近边界
 set encoding=utf-8
-
-" 启用语法高亮
 syntax on
 syntax enable
-
-" 设置缩进：每个制表符/缩进使用 2 个空格
-set shiftwidth=2
 set tabstop=2
-
-" 显示行号
+set shiftwidth=2
+set softtabstop=2
 set number
-set relativenumber 
-
-" 使用基于缩进的折叠
+set relativenumber
 set foldmethod=indent
-
-" 在状态行中显示正在输入的命令
 set showcmd
-
-" 高亮搜索结果
 set hlsearch
-
-" 启用增量搜索
 set incsearch
-
-" 设置wildmenu
-set wildmenu 
-
-
-"设置vim与系统共用一个剪切板
+set wildmenu
 set clipboard=unnamedplus
+set undofile  " 启用撤销文件
+set autoindent  " 自动缩进
+set smartindent " 智能缩进
+set backspace=indent,eol,start
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-" === 文件路径和文件类型设置 ===
+" 保存时自动删除尾部空格
+autocmd BufWritePre * :%s/\s\+$//e
 
-" 启用文件类型特定的缩进
+" === 文件类型设置 ===
 filetype indent on
 
-" === 附加功能设置 ===
-" 标签
+" === 键映射 ===
 inoremap jk <Esc>
 
-" 在普通模式交换上下两行
-nnoremap <c-j> :m +1<cr>
-nnoremap <c-k> :m -2<cr>
+let mapleader = " "  " 设置 leader 键为 空格
+map <leader>q :q<CR>
+map <leader>wq :wq<CR>
 
-"--将<leader>设置为 格 键
-let mapleader = " "
+" 分屏
+map <leader>sl :set splitright<CR>:vsplit<CR>
+map <leader>sh :set nosplitright<CR>:vsplit<CR>
+map <leader>sk :set nosplitbelow<CR>:split<CR>
+map <leader>sj :set splitbelow<CR>:split<CR>
 
-" === 特殊配置 ===
-" 启用彩虹括号功能
-let g:rainbow_active = 1  
+map <up> :res +5<CR>
+map <down> :res -5<CR>
+map <left> :vertical resize-5<CR>
+map <right> :vertical resize+5<CR>
 
-" airline
-set showtabline=2
+
+" === 特殊功能 ===
+let g:rainbow_active = 1  " 启用彩虹括号
+let g:airline_theme = 'gruvbox'  " 设置 vim-airline 的主题
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#show_splits = 0
-let g:airline#extensions#tabline#show_tab_count = 0
-let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#formatter = 'unique_tail'
 
-" 设置 vim-airline 的主题
-let g:airline_theme = 'gruvbox'
-
-" easymotion
+" Easymotion 快速跳转配置
 let g:EasyMotion_smartcase = 1
-"let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
-map <Leader>h <Plug>(easymotion-linebackward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>l <Plug>(easymotion-lineforward)
-" 重复上一次操作, 类似repeat插件, 很强大
-map <Leader>. <Plug>(easymotion-repeat)
+"map <Leader>h <Plug>(easymotion-linebackward)
+"map <Leader>j <Plug>(easymotion-j)
+"map <Leader>k <Plug>(easymotion-k)
+"map <Leader>l <Plug>(easymotion-lineforward)
+"map <Leader>. <Plug>(easymotion-repeat)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+

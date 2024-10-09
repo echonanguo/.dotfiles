@@ -38,10 +38,6 @@ set clipboard+=unnamed
 " 使用jk退出插入模式
 imap jk <esc>
 
-" 在普通模式交换上下两行
-nnoremap <c-j> :m +1<cr>
-nnoremap <c-k> :m -2<cr>
-
 "切换标签页
 nmap L <action>(NextTab)
 nmap H <action>(PreviousTab)
@@ -63,12 +59,12 @@ nmap <Leader>C :action CloseAllEditors<CR>
 
 let g:EasyMotion_smartcase = 1
 "let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
-map <Leader>h <Plug>(easymotion-linebackward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>l <Plug>(easymotion-lineforward)
+"map <Leader>h <Plug>(easymotion-linebackward)
+"map <Leader>j <Plug>(easymotion-j)
+"map <Leader>k <Plug>(easymotion-k)
+"map <Leader>l <Plug>(easymotion-lineforward)
 " 重复上一次操作, 类似repeat插件, 很强大
-map <Leader>. <Plug>(easymotion-repeat)
-
+"map <Leader>. <Plug>(easymotion-repeat)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
 
 
