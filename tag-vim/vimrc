@@ -15,7 +15,8 @@ Plug 'easymotion/vim-easymotion'
 
 " markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
-
+" 补全
+Plug 'neoclide/coc.nvim'
 call plug#end()
 
 " === 主题设置 ===
@@ -48,7 +49,6 @@ set undofile  " 启用撤销文件
 set autoindent  " 自动缩进
 set smartindent " 智能缩进
 set backspace=indent,eol,start
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " 保存时自动删除尾部空格
 autocmd BufWritePre * :%s/\s\+$//e
@@ -90,3 +90,8 @@ let g:EasyMotion_smartcase = 1
 "map <Leader>. <Plug>(easymotion-repeat)
 nmap <Leader>f <Plug>(easymotion-overwin-f)
 
+" Use <Tab> and <S-Tab> to navigate the completion list
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Use <CR> to confirm completion, or insert a newline if completion menu is not visible
+inoremap <silent><expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
