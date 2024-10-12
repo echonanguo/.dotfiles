@@ -97,7 +97,7 @@ mode "resize" {
 bindsym h resize shrink width 10 px
 bindsym l resize grow width 10 px
 bindsym j resize grow height 10 px
-bindsym k resize shrink height 10 px  
+bindsym k resize shrink height 10 px
 bindsym 8 resize set 50 ppt 50 ppt
 bindsym 9 resize set 62 ppt 38 ppt
 
@@ -136,7 +136,7 @@ bar {
 	}
 
 		output primary
-		tray_output primary 
+		tray_output primary
 		position top
 		status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
 		strip_workspace_numbers yes
@@ -156,8 +156,8 @@ bar {
 			binding_mode       #FF5555 #FF5555 #F8F8F2
 	}
 
-		output HDMI-2 
-		tray_output none 
+		output HDMI-2
+		tray_output none
 		position top
 		status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
 		strip_workspace_numbers yes
@@ -168,7 +168,7 @@ bar {
 default_border none
 
 #锁定快捷键
-bindsym $mod+shift+x exec i3lock 
+bindsym $mod+shift+x exec i3lock
 #深度截图
 bindsym $mod+Shift+y exec maim -s -u | tee ~/Pictures/screenshots/$(date +'%Y-%m-%d-%H-%M-%S').png | xclip -selection clipboard -t image/png -i
 
@@ -182,7 +182,7 @@ bindsym $mod+u move workspace to output HDMI-2
 # 将工作区移动到下方的显示器
 bindsym $mod+p move workspace to output eDP-1
 
-exec_always --no-startup-id picom --config ~/.config/picom/picom.conf1 
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf1
 exec --no-startup-id redshift
 exec --no-startup-id fcitx5
 

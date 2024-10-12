@@ -80,7 +80,6 @@ let g:rainbow_active = 1  " 启用彩虹括号
 let g:airline_theme = 'gruvbox'  " 设置 vim-airline 的主题
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
-
 " Easymotion 快速跳转配置
 let g:EasyMotion_smartcase = 1
 "map <Leader>h <Plug>(easymotion-linebackward)
@@ -95,3 +94,4 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Use <CR> to confirm completion, or insert a newline if completion menu is not visible
 inoremap <silent><expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+
