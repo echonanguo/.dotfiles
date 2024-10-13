@@ -3,18 +3,14 @@ set $mod Mod4
 # 设置字体
 font pango:"JetBrains Mono" 11
 
-exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
 # 发送窗口到 Scratchpad
 bindsym $mod+Shift+minus move scratchpad
-
 # 从 Scratchpad 调出窗口
 bindsym $mod+minus scratchpad show
 
 floating_modifier $mod
 tiling_drag modifier titlebar
-bindsym $mod+Return exec GLFW_IM_MODULE=ibus kitty
+bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec rofi -show drun -theme Arc-Dark
 bindsym $mod+h focus left
@@ -167,24 +163,22 @@ bar {
 # 3 px 宽的无标题栏边框
 default_border none
 
+# 为 Alacritty 窗口设置 1 像素边框
+for_window [class="Alacritty"] border pixel 2
+
 #锁定快捷键
 bindsym $mod+shift+x exec i3lock
 #深度截图
 bindsym $mod+Shift+y exec maim -s -u | tee ~/Pictures/screenshots/$(date +'%Y-%m-%d-%H-%M-%S').png | xclip -selection clipboard -t image/png -i
 
-
-exec_always feh --bg-scale ~/Pictures/wallpaper/wallhaven-eyo63o.png
 # 设置显示器
 exec_always --no-startup-id xrandr --output eDP-1 ---primary --auto
 exec_always --no-startup-id xrandr --output HDMI-2 --above eDP-1
-
 bindsym $mod+u move workspace to output HDMI-2
 # 将工作区移动到下方的显示器
 bindsym $mod+p move workspace to output eDP-1
 
-exec_always --no-startup-id picom --config ~/.config/picom/picom.conf1
-exec --no-startup-id redshift
-exec --no-startup-id fcitx5
+exec ~/.config/i3/autostart.sh
 
 # Screen brightness controls
 bindsym $mod+XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
