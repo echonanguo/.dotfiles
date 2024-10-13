@@ -1,7 +1,7 @@
 # 设置win为mod键
 set $mod Mod4
 # 设置字体
-font pango:"JetBrains Mono" 11
+font pango:"JetBrains Mono" 10
 
 # 发送窗口到 Scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -12,7 +12,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec rofi -show drun -theme Arc-Dark
+bindsym $mod+d exec rofi -show drun
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up

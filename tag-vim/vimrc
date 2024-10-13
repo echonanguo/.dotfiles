@@ -25,6 +25,7 @@ if has("termguicolors")
 endif
 
 " 主题配色方案
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE " transparent bg
 colorscheme gruvbox
 set bg=dark
 

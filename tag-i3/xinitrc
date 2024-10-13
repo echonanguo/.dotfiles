@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# 设置中文环境
+export LANG=zh_CN.UTF-8
+
+# 设置dpi
+xrandr --dpi 144
+
+# 设置输入法
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export SDL_IM_MODULE=fcitx
+
+# 启动i3
+exec i3
+
+
