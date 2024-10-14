@@ -173,7 +173,7 @@ bindsym $mod+Shift+y exec maim -s -u | tee ~/Pictures/screenshots/$(date +'%Y-%m
 
 # 设置显示器
 exec_always --no-startup-id xrandr --output eDP-1 ---primary --auto
-exec_always --no-startup-id xrandr --output HDMI-2 --above eDP-1
+exec_always --no-startup-id xrandr --output HDMI-2 --right-of eDP-1
 bindsym $mod+u move workspace to output HDMI-2
 # 将工作区移动到下方的显示器
 bindsym $mod+p move workspace to output eDP-1
