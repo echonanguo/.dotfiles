@@ -9,6 +9,9 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export SDL_IM_MODULE=fcitx
 
+# 读取 .Xresources
+xrdb -merge ~/.Xresources
+
 # 启动i3
 exec i3
 
