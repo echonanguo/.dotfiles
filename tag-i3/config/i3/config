@@ -181,10 +181,10 @@ bindsym $mod+p move workspace to output eDP-1
 exec ~/.config/i3/autostart.sh
 
 # Screen brightness controls
-bindsym $mod+XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
-bindsym $mod+XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 # 声音
-bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 10%+
-bindsym $mod+XF86AudioLowerVolume exec --no-startup-id amixer sset Master 10%-
-bindsym $mod+XF86AudioMute exec --no-startup-id amixer sset Master toggle
-bindsym $mod+XF86AudioMicMute exec --no-startup-id amixer sset Capture toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 10%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 10%-
+bindsym XF86AudioMute exec --no-startup-id amixer sset Master toggle
+bindsym XF86AudioMicMute exec --no-startup-id amixer sset Capture toggle
