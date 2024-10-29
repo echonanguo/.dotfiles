@@ -1,13 +1,6 @@
 " === 插件管理 ===
 call plug#begin()
 
-" 状态行插件
-Plug 'vim-airline/vim-airline'
-
-" 彩虹括号
-Plug 'frazrepo/vim-rainbow'
-
-" 主题
 Plug 'morhetz/gruvbox'
 
 " 快速跳转
@@ -15,8 +8,11 @@ Plug 'easymotion/vim-easymotion'
 
 " markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
+
 " 补全
 Plug 'neoclide/coc.nvim'
+
+
 call plug#end()
 
 " === 主题设置 ===
@@ -84,11 +80,10 @@ let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 " Easymotion 快速跳转配置
 let g:EasyMotion_smartcase = 1
-"map <Leader>h <Plug>(easymotion-linebackward)
-"map <Leader>j <Plug>(easymotion-j)
-"map <Leader>k <Plug>(easymotion-k)
-"map <Leader>l <Plug>(easymotion-lineforward)
-"map <Leader>. <Plug>(easymotion-repeat)
+map <Leader>h <Plug>(easymotion-linebackward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>l <Plug>(easymotion-lineforward)
 nmap <Leader>f <Plug>(easymotion-overwin-f)
 
 " Use <Tab> and <S-Tab> to navigate the completion list
