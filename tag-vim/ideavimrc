@@ -38,18 +38,12 @@ set clipboard+=unnamed
 " 使用jk退出插入模式
 imap jk <esc>
 
-"切换标签页
-nmap L <action>(NextTab)
-nmap H <action>(PreviousTab)
-
 " ================================================================================================
 " ⭐️⭐️⭐️ Leader Keymaps ⭐️⭐️⭐️ =====================================
 " ================================================================================================
 "--将<leader>设置为 空格 键
 let mapleader = " "
 
-" <Leader> + c 关闭当前标签页
-nmap <Leader>c :action CloseEditor<CR>
 " <Leader> + C 关闭所有标签页
 nmap <Leader>C :action CloseAllEditors<CR>
 
@@ -58,13 +52,9 @@ nmap <Leader>C :action CloseAllEditors<CR>
 " ================================================================================================
 
 let g:EasyMotion_smartcase = 1
-"let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
-"map <Leader>h <Plug>(easymotion-linebackward)
-"map <Leader>j <Plug>(easymotion-j)
-"map <Leader>k <Plug>(easymotion-k)
-"map <Leader>l <Plug>(easymotion-lineforward)
-" 重复上一次操作, 类似repeat插件, 很强大
-"map <Leader>. <Plug>(easymotion-repeat)
+map <Leader>h <Plug>(easymotion-linebackward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>l <Plug>(easymotion-lineforward)
 nmap <Leader>f <Plug>(easymotion-overwin-f)
-
 
