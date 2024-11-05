@@ -69,8 +69,9 @@ map <leader>sh :set nosplitright<CR>:vsplit<CR>
 map <leader>sk :set nosplitbelow<CR>:split<CR>
 map <leader>sj :set splitbelow<CR>:split<CR>
 
-" 标签
-map <leader>tn :tabnew<CR>
+" 标签/buffer
+nnoremap gt :bnext<CR>
+nnoremap gT :bprev<CR>
 
 map <up> :res +5<CR>
 map <down> :res -5<CR>
@@ -83,6 +84,7 @@ let g:rainbow_active = 1  " 启用彩虹括号
 let g:airline_theme = 'gruvbox'  " 设置 vim-airline 的主题
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
 
 " Easymotion 快速跳转配置
 let g:EasyMotion_smartcase = 1
