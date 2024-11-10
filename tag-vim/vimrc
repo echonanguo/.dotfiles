@@ -7,14 +7,8 @@ Plug 'morhetz/gruvbox'
 " 快速跳转
 Plug 'easymotion/vim-easymotion'
 
-" markdown
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
-
 " 状态栏
 Plug 'vim-airline/vim-airline'
-
-" 补全
-Plug 'neoclide/coc.nvim'
 
 call plug#end()
 
@@ -45,7 +39,8 @@ set hlsearch
 set incsearch
 set wildmenu
 set clipboard=unnamedplus
-set undofile  " 启用撤销文件
+set noundofile
+set nobackup
 set autoindent  " 自动缩进
 set smartindent " 智能缩进
 set backspace=indent,eol,start
@@ -62,6 +57,7 @@ inoremap jk <Esc>
 let mapleader = " "  " 设置 leader 键为 空格
 map <leader>q :q<CR>
 map <leader>w :w<CR>
+nnoremap <leader>c :bd<CR>
 
 " 分屏
 map <leader>sl :set splitright<CR>:vsplit<CR>
@@ -70,8 +66,8 @@ map <leader>sk :set nosplitbelow<CR>:split<CR>
 map <leader>sj :set splitbelow<CR>:split<CR>
 
 " 标签/buffer
-nnoremap gt :bnext<CR>
-nnoremap gT :bprev<CR>
+nnoremap L :bnext<CR>
+nnoremap H :bprev<CR>
 
 map <up> :res +5<CR>
 map <down> :res -5<CR>
@@ -95,8 +91,10 @@ map <Leader>l <Plug>(easymotion-lineforward)
 nmap <Leader>f <Plug>(easymotion-overwin-f)
 
 " Use <Tab> and <S-Tab> to navigate the completion list
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Use <CR> to confirm completion, or insert a newline if completion menu is not visible
-inoremap <silent><expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+" inoremap <silent><expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
+" gvim字体配置
+set guifont=Consolas:h18
