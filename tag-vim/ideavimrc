@@ -51,6 +51,11 @@ let mapleader=" "
 set which-key
 set notimeout
 
+map <up> :res +5<CR>
+map <down> :res -5<CR>
+map <left> :vertical resize-5<CR>
+map <right> :vertical resize+5<CR>
+
 " d: diff
 nmap <leader>dd <action>(Vcs.ShowTabbedFileHistory)
 
