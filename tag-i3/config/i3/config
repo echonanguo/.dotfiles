@@ -167,7 +167,7 @@ default_border none
 for_window [class="Alacritty"] border pixel 2
 
 #锁定快捷键
-bindsym $mod+shift+x exec i3lock
+bindsym $mod+shift+b exec i3lock
 #深度截图
 bindsym $mod+Shift+y exec maim -s -u | tee ~/Pictures/screenshots/$(date +'%Y-%m-%d-%H-%M-%S').png | xclip -selection clipboard -t image/png -i
 
@@ -179,6 +179,13 @@ bindsym $mod+u move workspace to output HDMI-2
 bindsym $mod+p move workspace to output eDP-1
 
 exec ~/.config/i3/autostart.sh
+
+# 休眠睡眠
+# Mod+h 触发休眠(将数据保存在硬盘中)
+bindsym $mod+Shift+x exec systemctl hibernate
+
+# Mod+s 触发睡眠(将数据保存在内存中)
+bindsym $mod+Shift+s exec systemctl suspend
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+

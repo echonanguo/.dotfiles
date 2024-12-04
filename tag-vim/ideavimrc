@@ -27,22 +27,32 @@ set hlsearch                   " 高亮搜索匹配内容
 " 没有 Leader 键的快捷键映射
 
 nmap ge <action>(GotoNextError)             " 跳转到下一个错误
-nmap gt <action>(GotoTest)                  " 跳转到测试文件
-nmap gm <action>(MethodUp)                  " 跳转到方法的上方
-nmap ga <action>(GotoImplementation)        " 跳转到实现
-nmap go <action>(GotoTypeDeclaration)       " 跳转到类型声明
+" 跳转到测试文件
+nmap gt <action>(GotoTest)
+" 跳转到方法的上方
+nmap gm <action>(MethodUp)
+" 跳转到实现
+nmap ga <action>(GotoImplementation)
+" 跳转到类型声明
+nmap go <action>(GotoTypeDeclaration)
 
 " 书签功能
-nmap mm <action>(ToggleBookmark)            " 切换书签
-nmap ma mA                                  " 在当前光标位置添加书签
-nmap 'a 'A                                  " 跳转到书签位置
+"" 切换书签
+nmap mm <action>(ToggleBookmark)
+" 在当前光标位置添加书签
+nmap ma mA
+" 跳转到书签位置
+nmap 'a 'A
 
 " 切换标签页
-nmap L <action>(NextTab)                    " 切换到下一个标签页
-nmap H <action>(PreviousTab)                " 切换到上一个标签页
+"" 切换到下一个标签页
+nmap L <action>(NextTab)
+" 切换到上一个标签页
+nmap H <action>(PreviousTab)
 
 " 按 jk 退出插入模式
-inoremap jk <Esc>                           " 在插入模式下按 jk 退出插入模式
+"" 在插入模式下按 jk 退出插入模式
+inoremap jk <Esc>
 
 " ================================================================================================
 " = Leader Keymaps =====================================
@@ -51,52 +61,78 @@ inoremap jk <Esc>                           " 在插入模式下按 jk 退出插
 let mapleader=" "
 
 " d: diff - 版本控制相关快捷键
-nmap <leader>dd <action>(Vcs.ShowTabbedFileHistory)  " 显示文件历史
+"" 显示文件历史
+nmap <leader>dd <action>(Vcs.ShowTabbedFileHistory)
 
 " f: 查找/格式化功能
 nmap <leader>ff <action>(GotoFile)                " 查找文件
-nmap <leader>fl <action>(SelectInProjectView)     " 在项目视图中查找文件位置
-nmap <leader>ft <action>(FindInPath)              " 查找文本内容
-nmap <leader>fc <action>(GotoAction)              " 查找动作/命令
-nmap <leader>fp <action>(OpenProjectWindows)      " 打开项目窗口
-nmap <leader>fm <action>(ReformatCode) \| <action>(OptimizeImports) " 格式化代码并优化导入
+" 在项目视图中查找文件位置
+nmap <leader>fl <action>(SelectInProjectView)
+" 查找文本内容
+nmap <leader>ft <action>(FindInPath)
+" 查找动作/命令
+nmap <leader>fc <action>(GotoAction)
+" 打开项目窗口
+nmap <leader>fp <action>(OpenProjectWindows)
+" 格式化代码并优化导入
+nmap <leader>fm <action>(ReformatCode) \| <action>(OptimizeImports)
 
 " g: Git 相关功能
-nmap <leader>gr :action Vcs.RollbackChangedLines<CR>  " 撤销修改的行
+"" 撤销修改的行
+nmap <leader>gr :action Vcs.RollbackChangedLines<CR>
 
 " l: LSP（语言服务器协议）相关
-nmap <leader>lr <action>(RenameElement)         " 重命名当前元素
+"" 重命名当前元素
+nmap <leader>lr <action>(RenameElement)
 
 " n: 清除高亮
-nmap <leader>nl :nohlsearch<CR>                 " 清除高亮显示的搜索结果
+"" 清除高亮显示的搜索结果
+nmap <leader>nl :nohlsearch<CR>
 
 " s: 显示相关功能
-nmap <leader>ss <action>(FileStructurePopup)    " 打开文件结构视图
-nmap <leader>sb <action>(ShowBookmarks)         " 显示书签
-nmap <leader>sp <action>(ParameterInfo)         " 显示当前函数的参数信息
+"" 打开文件结构视图
+nmap <leader>ss <action>(FileStructurePopup)
+" 显示书签
+nmap <leader>sb <action>(ShowBookmarks)
+" 显示当前函数的参数信息
+nmap <leader>sp <action>(ParameterInfo)
 
 " r: 运行/重新运行相关功能
-nmap <leader>rr <action>(Rerun)                 " 重新运行
-nmap <leader>rt <action>(RerunTests)            " 重新运行测试
-map <leader>rn <action>(RenameElement)         " 重命名当前元素
+"" 重新运行
+nmap <leader>rr <action>(Rerun)
+" 重新运行测试
+nmap <leader>rt <action>(RerunTests)
+" 重命名当前元素
+map <leader>rn <action>(RenameElement)
 
 " w: 窗口管r
-nmap <leader>wo <action>(UnsplitAll) \| <action>(HideAllWindows)  " 取消所有分屏或隐藏所有窗口
-nmap <leader>wl :action SplitVertically<CR>  " 垂直分屏
-nmap <leader>wc <c-w>c                         " 关闭当前窗口
+"" 取消所有分屏或隐藏所有窗口
+nmap <leader>wo <action>(UnsplitAll) \| <action>(HideAllWindows)
+" 垂直分屏
+nmap <leader>wl :action SplitVertically<CR>
+" 关闭当前窗口
+nmap <leader>wc <c-w>c
 
 " z: 折叠/展开代码区域
-nmap <leader>zo <action>(ExpandAllRegions)      " 展开所有折叠区域
-nmap <leader>zc <action>(CollapseAllRegions)    " 折叠所有区域
+"" 展开所有折叠区域
+nmap <leader>zo <action>(ExpandAllRegions)
+" 折叠所有区域
+nmap <leader>zc <action>(CollapseAllRegions)
 
 " c: 关闭当前缓冲区
-nmap <leader>c :q!<CR>                          " 强制退出当前缓冲区
+" 强制退出当前缓冲区
+nmap <leader>c :q!<CR>
 
 " e: 启动项目工具窗口
-nmap <leader>e <action>(ActivateProjectToolWindow)  " 打开项目工具窗口
+" 打开项目工具窗口
+nmap <leader>e <action>(ActivateProjectToolWindow)
 
 " e: 提取功能
-vmap <leader>em <action>(ExtractMethod)         " 提取为方法
-vmap <leader>ec <action>(IntroduceConstant)     " 提取为常量
-vmap <leader>ef <action>(IntroduceField)        " 提取为字段
-vmap <leader>ev <action>(IntroduceVariable)     " 提取为变量
+" 提取为方法
+vmap <leader>em <action>(ExtractMethod)
+" 提取为常量
+vmap <leader>ec <action>(IntroduceConstant)
+" 提取为字段
+vmap <leader>ef <action>(IntroduceField)
+" 提取为变量
+vmap <leader>ev <action>(IntroduceVariable)
