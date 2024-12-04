@@ -1,155 +1,102 @@
 " ================================================================================================
 " = Extensions =====================================
 " ================================================================================================
-Plug 'tpope/vim-surround'
-Plug 'preservim/nerdtree'
+" 安装插件部分
+Plug 'tpope/vim-surround'        " vim-surround: 用于处理括号、引号等的插件
+Plug 'preservim/nerdtree'        " nerdtree: 文件资源管理器插件
+Plug 'easymotion/vim-easymotion' " 快速跳转
 
-Plug 'terryma/vim-multiple-cursors'
 " ================================================================================================
 " = Basic settings =====================================
 " ================================================================================================
-set clipboard+=unnamed
-set ignorecase
-set scrolloff=30
-set history=200
+" 基本设置
+set clipboard+=unnamed          " 允许与系统剪贴板共享（Vim和外部应用共享剪贴板）
+set ignorecase                 " 搜索时忽略大小写
+set scrolloff=30               " 设置光标距离屏幕上下边缘的最小行数
+set history=200                " 设置命令历史的条数
 
-set number
-set relativenumber
+set number                     " 显示行号
+set relativenumber             " 显示相对行号
 
-set incsearch
-set hlsearch
+set incsearch                  " 增量搜索（在输入时自动显示匹配）
+set hlsearch                   " 高亮搜索匹配内容
 
 " ================================================================================================
-" e No Leader Keymaps =====================================
+" = No Leader Keymaps =====================================
 " ================================================================================================
-nmap ge <action>(GotoNextError)
-nmap gt <action>(GotoTest)
-nmap gm <action>(MethodUp)
-nmap ga <action>(GotoImplementation)
-nmap go <action>(GotoTypeDeclaration)
+" 没有 Leader 键的快捷键映射
 
-" bookmark
-nmap mm <action>(ToggleBookmark)
-nmap ma mA
-nmap 'a 'A
+nmap ge <action>(GotoNextError)             " 跳转到下一个错误
+nmap gt <action>(GotoTest)                  " 跳转到测试文件
+nmap gm <action>(MethodUp)                  " 跳转到方法的上方
+nmap ga <action>(GotoImplementation)        " 跳转到实现
+nmap go <action>(GotoTypeDeclaration)       " 跳转到类型声明
 
-nmap L <action>(NextTab)
-nmap H <action>(PreviousTab)
+" 书签功能
+nmap mm <action>(ToggleBookmark)            " 切换书签
+nmap ma mA                                  " 在当前光标位置添加书签
+nmap 'a 'A                                  " 跳转到书签位置
 
-inoremap jk <Esc>
+" 切换标签页
+nmap L <action>(NextTab)                    " 切换到下一个标签页
+nmap H <action>(PreviousTab)                " 切换到上一个标签页
 
+" 按 jk 退出插入模式
+inoremap jk <Esc>                           " 在插入模式下按 jk 退出插入模式
 
 " ================================================================================================
 " = Leader Keymaps =====================================
 " ================================================================================================
-" leaderkey
+" Leader 键相关快捷键映射，默认是空格键
 let mapleader=" "
 
-" ================================================================================================
-" 👻👻👻 Which-Key 👻👻👻
-" ================================================================================================
-set which-key
-set notimeout
+" d: diff - 版本控制相关快捷键
+nmap <leader>dd <action>(Vcs.ShowTabbedFileHistory)  " 显示文件历史
 
-map <up> :res +5<CR>
-map <down> :res -5<CR>
-map <left> :vertical resize-5<CR>
-map <right> :vertical resize+5<CR>
+" f: 查找/格式化功能
+nmap <leader>ff <action>(GotoFile)                " 查找文件
+nmap <leader>fl <action>(SelectInProjectView)     " 在项目视图中查找文件位置
+nmap <leader>ft <action>(FindInPath)              " 查找文本内容
+nmap <leader>fc <action>(GotoAction)              " 查找动作/命令
+nmap <leader>fp <action>(OpenProjectWindows)      " 打开项目窗口
+nmap <leader>fm <action>(ReformatCode) \| <action>(OptimizeImports) " 格式化代码并优化导入
 
-" d: diff
-nmap <leader>dd <action>(Vcs.ShowTabbedFileHistory)
+" g: Git 相关功能
+nmap <leader>gr :action Vcs.RollbackChangedLines<CR>  " 撤销修改的行
 
-" f: Find/Format ⭐️
-let g:WhichKeyDesc_FindOrFormat = "<leader>f FindOrFormat"
-let g:WhichKeyDesc_FindOrFormat_FindFile = "<leader>ff FindFile"
-nmap <leader>ff <action>(GotoFile)
+" l: LSP（语言服务器协议）相关
+nmap <leader>lr <action>(RenameElement)         " 重命名当前元素
 
-let g:WhichKeyDesc_FindOrFormat_FindFileLocation = "<leader>fl FindFileLocation"
-nmap <leader>fl <action>(SelectInProjectView)
+" n: 清除高亮
+nmap <leader>nl :nohlsearch<CR>                 " 清除高亮显示的搜索结果
 
-let g:WhichKeyDesc_FindOrFormat_FindText = "<leader>ft FindText"
-nmap <leader>ft <action>(FindInPath)
+" s: 显示相关功能
+nmap <leader>ss <action>(FileStructurePopup)    " 打开文件结构视图
+nmap <leader>sb <action>(ShowBookmarks)         " 显示书签
+nmap <leader>sp <action>(ParameterInfo)         " 显示当前函数的参数信息
 
-let g:WhichKeyDesc_FindOrFormat_Commands = "<leader>fc Commands"
-nmap <leader>fc <action>(GotoAction)
+" r: 运行/重新运行相关功能
+nmap <leader>rr <action>(Rerun)                 " 重新运行
+nmap <leader>rt <action>(RerunTests)            " 重新运行测试
+map <leader>rn <action>(RenameElement)         " 重命名当前元素
 
-let g:WhichKeyDesc_FindOrFormat_OpenedProject = "<leader>fp OpenedProject"
-nmap <leader>fp <action>(OpenProjectWindows)
+" w: 窗口管r
+nmap <leader>wo <action>(UnsplitAll) \| <action>(HideAllWindows)  " 取消所有分屏或隐藏所有窗口
+nmap <leader>wl :action SplitVertically<CR>  " 垂直分屏
+nmap <leader>wc <c-w>c                         " 关闭当前窗口
 
-let g:WhichKeyDesc_FindOrFormat_Format = "<leader>fm Format"
-nmap <leader>fm <action>(ReformatCode) \| <action>(OptimizeImports)
+" z: 折叠/展开代码区域
+nmap <leader>zo <action>(ExpandAllRegions)      " 展开所有折叠区域
+nmap <leader>zc <action>(CollapseAllRegions)    " 折叠所有区域
 
-" g: Git ⭐️
-let g:WhichKeyDesc_Git = "<leader>g Git"
-let g:WhichKeyDesc_Git_RollbackHunk = "<leader>gr RollbackHunk"
-nmap <leader>gr :action Vcs.RollbackChangedLines<CR>
+" c: 关闭当前缓冲区
+nmap <leader>c :q!<CR>                          " 强制退出当前缓冲区
 
-" i: Insert ⭐️
-let g:WhichKeyDesc_InsertAfterBrackets = "<leader>i InsertAfterBrackets"
-nmap <leader>i f(a
+" e: 启动项目工具窗口
+nmap <leader>e <action>(ActivateProjectToolWindow)  " 打开项目工具窗口
 
-" j: add Semicolon and goto nextline⭐️
-let g:WhichKeyDesc_InsertSemicolon = "<leader>j InsertSemicolon"
-nmap <leader>j A;<ESC>o
-
-" l: lsp: Language server protocol (align with neovim)⭐️
-let g:WhichKeyDesc_LSP = "<leader>l LSP"
-let g:WhichKeyDesc_LSP_Rename = "<leader>lr Rename"
-nmap <leader>lr <action>(RenameElement)
-
-
-" n: No ⭐️
-let g:WhichKeyDesc_No_Highlight = "<leader>nl NoHighlight"
-nmap <leader>nl :nohlsearch<CR>
-
-
-" s: Show ⭐️
-let g:WhichKeyDesc_Show = "<leader>s Show"
-let g:WhichKeyDesc_Show_FileStructure = "<leader>ss ShowFileStructure"
-nmap <leader>ss <action>(FileStructurePopup)
-let g:WhichKeyDesc_Show_Bookmarks = "<leader>sb ShowBookmarks"
-nmap <leader>sb <action>(ShowBookmarks)
-let g:WhichKeyDesc_Show_ParameterInfo = "<leader>sb ShowParameterInfo"
-nmap <leader>sp <action>(ParameterInfo)
-
-" r: Run/Re ⭐️
-let g:WhichKeyDesc_RunOrRe = "<leader>r RunOrRe"
-let g:WhichKeyDesc_RunOrRe_ReRun = "<leader>rr ReRun"
-nmap <leader>rr <action>(Rerun)
-let g:WhichKeyDesc_RunOrRe_ReRunTests = "<leader>rt ReRunTests"
-nmap <leader>rt <action>(RerunTests)
-let g:WhichKeyDesc_RunOrRe_Rename = "<leader>rn Rename"
-map <leader>rn <action>(RenameElement)
-
-" w: Window ⭐️
-let g:WhichKeyDesc_Windows = "<leader>w Windows"
-let g:WhichKeyDesc_Windows_maximize = "<leader>wo maximize"
-nmap <leader>wo <action>(UnsplitAll) \| <action>(HideAllWindows)
-let g:WhichKeyDesc_Windows_splitWindowVertically = "<leader>wl splitWindowVertically"
-nmap <leader>wl <action>(Macro.SplitVertically)
-let g:WhichKeyDesc_Windows_closeActiveWindow = "<leader>wc closeActiveWindow"
-nmap <leader>wc <c-w>c
-
-" z: zip(fold) ⭐️
-let g:WhichKeyDesc_Zip = "<leader>z Zip"
-let g:WhichKeyDesc_Zip_unZipAll = "<leader>zo unZipAll"
-nmap <leader>zo <action>(ExpandAllRegions)
-let g:WhichKeyDesc_Zip_ZipAll = "<leader>zc ZipAll"
-nmap <leader>zc <action>(CollapseAllRegions)
-
-" c: Close ⭐️;
-let g:WhichKeyDesc_CloseBuffer = "<leader>c CloseBuffer"
-nmap <leader>c :q!<CR>
-
-" e: Toggle Explorer ⭐️
-let g:WhichKeyDesc_ToggleExplorerOrExtract = "<leader>e ToggleExplorer"
-nmap <leader>e <action>(ActivateProjectToolWindow)
-" e: Extract
-" extract method/function
-vmap <leader>em <action>(ExtractMethod)
-" extract constant
-vmap <leader>ec <action>(IntroduceConstant)
-" extract field
-vmap <leader>ef <action>(IntroduceField)
-" extract variable
-vmap <leader>ev <action>(IntroduceVariable)
+" e: 提取功能
+vmap <leader>em <action>(ExtractMethod)         " 提取为方法
+vmap <leader>ec <action>(IntroduceConstant)     " 提取为常量
+vmap <leader>ef <action>(IntroduceField)        " 提取为字段
+vmap <leader>ev <action>(IntroduceVariable)     " 提取为变量
