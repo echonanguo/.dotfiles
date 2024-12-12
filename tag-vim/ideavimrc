@@ -26,7 +26,8 @@ set hlsearch                   " 高亮搜索匹配内容
 " ================================================================================================
 " 没有 Leader 键的快捷键映射
 
-nmap ge <action>(GotoNextError)             " 跳转到下一个错误
+" 跳转到下一个错误
+nmap ge <action>(GotoNextError)
 " 跳转到测试文件
 nmap gt <action>(GotoTest)
 " 跳转到方法的上方
@@ -65,7 +66,7 @@ let mapleader=" "
 nmap <leader>dd <action>(Vcs.ShowTabbedFileHistory)
 
 " f: 查找/格式化功能
-nmap <leader>ff <action>(GotoFile)                " 查找文件
+nmap <leader>ff <action>(GotoFile)
 " 在项目视图中查找文件位置
 nmap <leader>fl <action>(SelectInProjectView)
 " 查找文本内容

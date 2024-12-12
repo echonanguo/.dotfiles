@@ -10,6 +10,9 @@ Plug 'easymotion/vim-easymotion'
 " 状态栏
 Plug 'vim-airline/vim-airline'
 
+" 彩虹括号
+Plug 'luochen1990/rainbow'
+
 call plug#end()
 
 " === 主题设置 ===
@@ -24,7 +27,7 @@ autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE " transparent bg
 
 " === 基本编辑器设置 ===
 set laststatus=2
-set scrolloff=10  " 提高 scrolloff，避免光标过于贴近边界
+set scrolloff=30  " 提高 scrolloff，避免光标过于贴近边界
 set encoding=utf-8
 syntax on
 syntax enable
@@ -50,7 +53,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " === 文件类型设置 ===
 filetype indent on
-
 " === 键映射 ===
 inoremap jk <Esc>
 
@@ -82,12 +84,12 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
 
 " Easymotion 快速跳转配置
-let g:EasyMotion_smartcase = 1
-map <Leader>h <Plug>(easymotion-linebackward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>l <Plug>(easymotion-lineforward)
-nmap <Leader>f <Plug>(easymotion-overwin-f)
+"let g:EasyMotion_smartcase = 1
+"map <Leader>h <Plug>(easymotion-linebackward)
+"map <Leader>j <Plug>(easymotion-j)
+"map <Leader>k <Plug>(easymotion-k)
+"map <Leader>l <Plug>(easymotion-lineforward)
+"nmap <Leader>f <Plug>(easymotion-overwin-f)
 
 " Use <Tab> and <S-Tab> to navigate the completion list
 " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
