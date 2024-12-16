@@ -180,7 +180,6 @@ bindsym $mod+p move workspace to output eDP-1
 
 exec ~/.config/i3/autostart.sh
 
-# 休眠睡眠
 # Mod+h 触发休眠(将数据保存在硬盘中)
 bindsym $mod+Shift+x exec systemctl hibernate
 

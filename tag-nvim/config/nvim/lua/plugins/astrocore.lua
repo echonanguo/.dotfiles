@@ -30,6 +30,7 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = true, -- 软换行
+        scrolloff = 25, -- 提高 scrolloff，避免光标过于贴近边界
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
