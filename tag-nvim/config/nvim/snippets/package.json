@@ -1,0 +1,14 @@
+{
+  "name": "nanguo_snippets",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": "html",
+        "path": "./html5.json"
+      }
+    ]
+  }
+}
