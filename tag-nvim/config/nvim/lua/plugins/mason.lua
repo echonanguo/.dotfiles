@@ -8,10 +8,7 @@ return {
     -- overrides `require("mason-lspconfig").setup(...)`
     opts = {
       ensure_installed = {
-        "lua_ls",
-        "html",
-        "cssls",
-        "ts_ls",
+        -- "lua_ls",
         -- add more arguments for adding more language servers
       },
     },
@@ -25,13 +22,7 @@ return {
     opts = {
       ensure_installed = {
         -- formatter
-        "stylua",
-        "prettier",
-        -- linter
-        "eslint_d",
-        "markuplint",
-        "selene",
-        "stylelint",
+        -- "stylua",
         -- add more arguments for adding more null-ls sources
       },
     },
