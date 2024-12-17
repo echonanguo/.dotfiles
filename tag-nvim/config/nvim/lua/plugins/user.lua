@@ -3,5 +3,5 @@ return {
   -- jk退出插入模式
   { "max397574/better-escape.nvim", enabled = true },
   -- html-css-js预览
-  { "turbio/bracey.vim" },
+  { "turbio/bracey.vim", lazy = true },
 }
