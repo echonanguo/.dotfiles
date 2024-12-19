@@ -10,5 +10,6 @@ return {
   { import = "astrocommunity.pack.html-css" }, -- html-css 开发包
   { import = "astrocommunity.pack.cpp" }, -- cpp 开发包
   { import = "astrocommunity.pack.java" }, -- java开发包
+  { import = "astrocommunity.pack.python" }, -- python开发包
   -- import/override with your plugins folder
 }
