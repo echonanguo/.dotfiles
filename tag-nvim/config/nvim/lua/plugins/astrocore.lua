@@ -27,7 +27,7 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = true, -- 软换行
-        scrolloff = 25, -- 提高 scrolloff，避免光标过于贴近边界
+        scrolloff = 10, -- 提高 scrolloff，避免光标过于贴近边界
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -40,8 +40,8 @@ return {
         -- second key is the lefthand side of the map
 
         -- navigate buffer tabs
-        ["<Leader>sl"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
-        ["<leader>sh"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+        ["L"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+        ["H"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
         -- mappings seen under group name "Buffer"
         ["<Leader>bd"] = {
