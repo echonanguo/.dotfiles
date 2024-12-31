@@ -1,54 +1,16 @@
-#!/usr/bin/env sh
-TYPE="${BLOCK_INSTANCE:-mem}"
-PERCENT="${PERCENT:-true}"
-awk -v type=$TYPE -v percent=$PERCENT '
-/^MemTotal:/ {
-	mem_total=$2
-}
-/^MemFree:/ {
-	mem_free=$2
-}
-/^Buffers:/ {
-	mem_free+=$2
-}
-/^Cached:/ {
-	mem_free+=$2
-}
-/^SwapTotal:/ {
-	swap_total=$2
-}
-/^SwapFree:/ {
-	swap_free=$2
-}
-END {
-	if (type == "swap") {
-		free=swap_free/1024/1024
-		used=(swap_total-swap_free)/1024/1024
-		total=swap_total/1024/1024
-	} else {
-		free=mem_free/1024/1024
-		used=(mem_total-mem_free)/1024/1024
-		total=mem_total/1024/1024
-	}
-	pct=0
-	if (total > 0) {
-		pct=used/total*100
-	}
-	# full text
-	if (percent == "true" ) {
-		printf("%.1fG/%.1fG (%.f%%)\n", used, total, pct)
-	} else {
-		printf("%.1fG/%.1fG\n", used, total)
-	}
-	# short text
-	printf("%.f%%\n", pct)
-	# color
-	if (pct > 90) {
-		print("#FF0000")
-	} else if (pct > 80) {
-		print("#FFAE00")
-	} else if (pct > 70) {
-		print("#FFF600")
-	}
-}
-' /proc/meminfo
+#!/bin/bash
+
+# 获取 free 命令的输出，并提取必要的数值
+read total_mem_kb used_mem_kb <<<$(free -k | awk 'NR==2 {print $2, $3}')
+
+# 将总内存和已用内存从 KB 转换为 GB，保留一位小数
+total_mem=$(echo "scale=1; $total_mem_kb / 1024 / 1024" | bc)
+used_mem=$(echo "scale=1; $used_mem_kb / 1024 / 1024" | bc)
+
+# 计算内存使用率，设置更高的精度后再取整
+usage_percent=$(echo "scale=2; $used_mem_kb / $total_mem_kb * 100" | bc)
+usage_percent=$(echo "$usage_percent / 1" | bc)  # 强制取整
+
+# 输出结果，格式：已用内存/总内存 (使用率%)
+echo "${used_mem}G/${total_mem}G ($usage_percent%)"
+
