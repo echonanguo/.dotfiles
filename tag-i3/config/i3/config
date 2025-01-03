@@ -43,9 +43,9 @@ set $ws1 "1:Terminal"
 set $ws2 "2:Editor"
 set $ws3 "3:Chrome"
 set $ws4 "4:Doc"
-set $ws5 "5:Spotify"
+set $ws5 "5:Win"
 set $ws6 "6:Chat"
-set $ws7 "7:Clash"
+set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
@@ -74,16 +74,9 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # 软件默认工作区
-assign [class="Clash-verge"] $ws7
 assign [class="Google-chrome"] $ws3
 assign [class="wechat"] $ws6
-assign [class="libreoffice"] $ws4
-assign [class="okular"] $ws4
-assign [class="QQ"] $ws6
-assign [class="Spotify"] $ws5
 assign [class="jetbrains-idea"] $ws2
-assign [class="Typora"] $ws2
-assign [class="Code"] $ws2
 assign [class="jetbrains-clion"] $ws2
 
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
