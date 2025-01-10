@@ -7,10 +7,13 @@ read total_mem_kb used_mem_kb <<<$(free -k | awk 'NR==2 {print $2, $3}')
 total_mem=$(echo "scale=1; $total_mem_kb / 1024 / 1024" | bc)
 used_mem=$(echo "scale=1; $used_mem_kb / 1024 / 1024" | bc)
 
+# 使用 printf 格式化输出，确保小于 1 的数显示为 0.9 而不是 .9
+total_mem=$(printf "%.1f" $total_mem)
+used_mem=$(printf "%.1f" $used_mem)
+
 # 计算内存使用率，设置更高的精度后再取整
 usage_percent=$(echo "scale=2; $used_mem_kb / $total_mem_kb * 100" | bc)
 usage_percent=$(echo "$usage_percent / 1" | bc)  # 强制取整
 
 # 输出结果，格式：已用内存/总内存 (使用率%)
 echo "${used_mem}G/${total_mem}G ($usage_percent%)"
-
