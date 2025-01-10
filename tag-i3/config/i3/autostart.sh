@@ -8,5 +8,5 @@ picom --config ~/.config/picom/picom.conf1 &
 fcitx5 &
 
 # feh
-feh --bg-scale https://w.wallhaven.cc/full/md/wallhaven-mdpgl8.png &
+feh --bg-scale /home/nanguo/.config/i3/wallhaven-mdpgl8.png &
 
