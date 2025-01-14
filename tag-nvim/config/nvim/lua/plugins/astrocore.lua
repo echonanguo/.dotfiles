@@ -28,6 +28,7 @@ return {
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = true, -- 软换行
         scrolloff = 10, -- 提高 scrolloff，避免光标过于贴近边界
+        clipboard = "", -- 取消与系统共用剪切板
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -53,12 +54,26 @@ return {
           desc = "Close buffer from tabline",
         },
 
+        -- 粘贴
+        ["<Leader>p"] = { '"+p', desc = "Paste to the next line" },
+        ["<Leader>P"] = { '"+P', desc = "Paste to the previous line" },
+        -- 复制
+        ["<Leader>y"] = { '"+yy', desc = "Copy to Clipboard" },
+
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         -- ["<Leader>b"] = { desc = "Buffers" },
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
+      },
+      v = {
+
+        -- 粘贴
+        ["<Leader>p"] = { '"+p', desc = "Paste to the next line" },
+        ["<Leader>P"] = { '"+P', desc = "Paste to the previous line" },
+        -- 复制
+        ["<Leader>y"] = { '"+yy', desc = "Copy to Clipboard" },
       },
     },
   },
