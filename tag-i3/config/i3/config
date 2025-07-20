@@ -10,7 +10,7 @@ bindsym $mod+minus scratchpad show
 
 floating_modifier $mod
 tiling_drag modifier titlebar
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec rofi -show drun
 bindsym $mod+h focus left
@@ -126,30 +126,30 @@ bar {
 		output primary
 		tray_output primary
 		position top
-		status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
+		status_command i3status
 		strip_workspace_numbers yes
 }
 
-bar {
-
-	colors {
-			background #282A36
-			statusline #F8F8F2
-			separator  #44475A
-
-			focused_workspace  #44475A #44475A #F8F8F2
-			active_workspace   #282A36 #44475A #F8F8F2
-			inactive_workspace #282A36 #282A36 #BFBFBF
-			urgent_workspace   #FF5555 #FF5555 #F8F8F2
-			binding_mode       #FF5555 #FF5555 #F8F8F2
-	}
-
-		output HDMI-2
-		tray_output none
-		position top
-		status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
-		strip_workspace_numbers yes
-}
+#bar {
+#
+#	colors {
+#			background #282A36
+#			statusline #F8F8F2
+#			separator  #44475A
+#
+#			focused_workspace  #44475A #44475A #F8F8F2
+#			active_workspace   #282A36 #44475A #F8F8F2
+#			inactive_workspace #282A36 #282A36 #BFBFBF
+#			urgent_workspace   #FF5555 #FF5555 #F8F8F2
+#			binding_mode       #FF5555 #FF5555 #F8F8F2
+#	}
+#
+#		output HDMI-2
+#		tray_output none
+#		position top
+#		status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
+#		strip_workspace_numbers yes
+#}
 
 
 # 3 px 宽的无标题栏边框
@@ -160,7 +160,7 @@ for_window [class="Alacritty"] border pixel 2
 #锁定快捷键
 bindsym $mod+shift+b exec i3lock
 #深度截图
-bindsym $mod+Shift+y exec maim -s -u | tee ~/Pictures/screenshots/$(date +'%Y-%m-%d-%H-%M-%S').png | xclip -selection clipboard -t image/png -i
+#bindsym $mod+Shift+y exec maim -s -u | tee ~/Pictures/screenshots/$(date +'%Y-%m-%d-%H-%M-%S').png | xclip -selection clipboard -t image/png -i
 
 # 设置显示器
 #exec_always --no-startup-id xrandr --output eDP-1 ---primary --auto
@@ -169,14 +169,15 @@ bindsym $mod+Shift+y exec maim -s -u | tee ~/Pictures/screenshots/$(date +'%Y-%m
 # 将工作区移动到下方的显示器
 #bindsym $mod+p move workspace to output eDP-1
 
-# 开机启动脚本
-exec ~/.config/i3/autostart.sh
 
 # Mod+h 触发休眠(将数据保存在硬盘中)
 bindsym $mod+Shift+x exec systemctl hibernate
 
 # Mod+s 触发睡眠(将数据保存在内存中)
 bindsym $mod+Shift+s exec systemctl suspend
+
+# 开机启动脚本
+exec ~/.config/i3/autostart.sh
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
